@@ -1,0 +1,35 @@
+.page {
+  padding: var(--space-2xl) 0 var(--space-3xl);
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(27,43,75,.05) 0%, transparent 60%);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-xl) 0;
+  margin-bottom: var(--space-2xl);
+}
+
+.meta {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  margin-top: var(--space-lg);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .8rem;
+  color: var(--text-muted);
+}
+
+.contactBox {
+  background: rgba(27,43,75,.05);
+  border: 1px solid rgba(27,43,75,.12);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: var(--space-md);
+}
+.contactBox p { color: var(--text-secondary); font-size: .9rem; margin: 0; line-height: 1.7; }
+.contactBox a { color: var(--gold-dim); font-weight: 600; }

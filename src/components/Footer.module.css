@@ -1,0 +1,78 @@
+.footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.7);
+  margin-top: var(--space-3xl);
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  justify-content: space-between;
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 220px;
+}
+
+.logoMark {
+  font-size: 1.1rem;
+  color: var(--gold);
+}
+
+.logoText {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.tagline {
+  font-size: .875rem;
+  color: rgba(255,255,255,.5);
+  line-height: 1.5;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 140px;
+}
+
+.colTitle {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.col a {
+  font-size: .875rem;
+  color: rgba(255,255,255,.62);
+  text-decoration: none;
+  transition: color .15s;
+}
+.col a:hover { color: #fff; text-decoration: none; }
+
+.bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: var(--space-md) 0;
+}
+
+.bottom p {
+  font-size: .8rem;
+  color: rgba(255,255,255,.35);
+  text-align: center;
+}
