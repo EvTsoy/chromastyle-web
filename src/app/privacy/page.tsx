@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const EFFECTIVE = 'March 12, 2026';
-const UPDATED   = 'March 12, 2026';
+const UPDATED   = 'March 17, 2026';
 
 export default function PrivacyPage() {
   return (
@@ -46,86 +46,139 @@ export default function PrivacyPage() {
 
           <h2>2a. Camera &amp; Photo Data</h2>
           <p>
-            ChromaStyle requests access to your device camera to perform real-time color analysis
-            of your skin tone. <strong>Photos and camera frames are processed entirely on-device
-            and are never uploaded to our servers or transmitted to any third party.</strong> The
-            only data that leaves your device is described in Section 2b below.
+            ChromaStyle requests access to your device camera to capture a selfie for skin tone
+            analysis. All photo processing is performed <strong>entirely on-device</strong> using
+            Apple&apos;s Vision framework. <strong>Selfie photos and camera frames are never uploaded
+            to our servers, never sent to OpenAI, and never transmitted to any third party
+            whatsoever.</strong> The only data that leaves your device is described in Section 2b
+            below.
           </p>
 
-          <h2>2b. Color Analysis Data Sent to AI Services</h2>
+          <h2>2b. Style Quiz &amp; Locally Stored Preferences</h2>
           <p>
-            To generate your seasonal color palette, personalized style recommendations, and daily
-            inspiration content, ChromaStyle sends anonymized color values (CIE Lab color space
-            coordinates — numerical representations of color, not photographs) to the following
-            third-party AI services:
+            During onboarding, ChromaStyle asks you a series of style quiz questions, including
+            your age range, style preferences, lifestyle, budget, climate, and fashion goals.
+            <strong> All quiz answers are stored only on your device</strong> using Apple&apos;s
+            SwiftData framework and are never transmitted to our servers. A subset of this data
+            (your color season type, palette colors, and style preferences) is sent to OpenAI
+            solely to generate recommendations, as described in Section 2c.
+          </p>
+          <p>
+            We <strong>never</strong> collect or store your name, email address, physical location,
+            or device identifiers. No user accounts are created.
+          </p>
+
+          <h2>2c. Color Analysis Data Sent to OpenAI</h2>
+          <p>
+            To generate personalized style recommendations, ChromaStyle sends the following
+            anonymized, non-photographic data to OpenAI:
           </p>
           <ul>
-            <li>
-              <strong>OpenAI API (ChatGPT)</strong> — Used to generate style recommendations,
-              outfit suggestions, and natural-language descriptions of your color palette.
-              Data sent: your color season type (e.g., &quot;Soft Autumn&quot;), palette color values,
-              and preference data you provide within the app. No photos are sent.
-              OpenAI&apos;s Privacy Policy: <a href="https://openai.com/privacy" target="_blank" rel="noopener noreferrer">openai.com/privacy</a>
-            </li>
-            <li>
-              <strong>Serper API</strong> — Used to fetch relevant style imagery and fashion
-              content for your Style Guide. Data sent: search queries derived from your color
-              season (e.g., &quot;Soft Autumn outfit ideas&quot;). No personal identifying information
-              is included.
-              Serper&apos;s Privacy Policy: <a href="https://serper.dev/privacy" target="_blank" rel="noopener noreferrer">serper.dev/privacy</a>
-            </li>
+            <li>Your color season type (e.g., &quot;Soft Autumn&quot;)</li>
+            <li>Your palette color values (numerical color representations)</li>
+            <li>Style preferences you provided in the quiz</li>
           </ul>
           <p>
-            Both services are used solely to deliver in-app features. We do not use them for
-            advertising, tracking, or profiling.
+            <strong>No photos, selfies, or images of any kind are ever sent to OpenAI.</strong>{' '}
+            This data is used solely to generate in-app style content and not for advertising,
+            tracking, or profiling.
           </p>
-
-          <h2>2c. Purchase Data</h2>
           <p>
-            ChromaStyle offers a one-time lifetime in-app purchase processed exclusively through
-            <strong> Apple&apos;s App Store and StoreKit</strong>. We do not collect, store, or process
-            any payment card numbers, billing addresses, or financial information. Purchase
-            verification is handled entirely by Apple. Apple&apos;s Privacy Policy:&nbsp;
-            <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">
-              apple.com/legal/privacy
-            </a>
+            OpenAI&apos;s Privacy Policy:{' '}
+            <a href="https://openai.com/privacy" target="_blank" rel="noopener noreferrer">openai.com/privacy</a>
           </p>
 
-          <h2>2d. Device &amp; Usage Data</h2>
+          <h2>2d. Product Inspiration Images (Google Shopping via Serper.dev)</h2>
+          <p>
+            Product inspiration images displayed in your Style Guide are sourced from Google
+            Shopping through the Serper.dev API. These requests are made by <strong>our server</strong>,
+            not directly from your device. No personal information or user identifiers are sent
+            to Serper.dev or Google — only a search query derived from your color season (e.g.,
+            &quot;Soft Autumn outfit ideas&quot;).
+          </p>
+          <p>
+            Serper&apos;s Privacy Policy:{' '}
+            <a href="https://serper.dev/privacy" target="_blank" rel="noopener noreferrer">serper.dev/privacy</a>
+          </p>
+
+          <h2>2e. Purchase Data</h2>
+          <p>
+            ChromaStyle offers in-app purchases processed by <strong>Apple&apos;s App Store</strong>.
+            We do not collect, store, or process any payment card numbers, billing addresses, or
+            financial information. Purchase receipts are validated through{' '}
+            <strong>RevenueCat</strong>, which receives only an anonymous app user ID (not linked
+            to your identity) and your Apple purchase receipt to verify entitlements. RevenueCat
+            does not receive your name, email, photos, or any personal data.
+          </p>
+          <p>
+            RevenueCat&apos;s Privacy Policy:{' '}
+            <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">revenuecat.com/privacy</a>
+          </p>
+
+          <h2>2f. Server Infrastructure (Supabase)</h2>
+          <p>
+            Our server backend uses <strong>Supabase</strong> infrastructure to proxy requests
+            for product inspiration images (see Section 2d). No personal user data is stored in
+            Supabase — it is used solely as a relay to fetch external content on your behalf.
+          </p>
+          <p>
+            Supabase&apos;s Privacy Policy:{' '}
+            <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">supabase.com/privacy</a>
+          </p>
+
+          <h2>2g. Device &amp; Usage Data</h2>
           <p>
             The App may collect anonymized, aggregated crash reports and performance diagnostics
             through Apple&apos;s built-in frameworks (e.g., MetricKit). This data cannot be used to
             identify you personally. We do not use third-party analytics SDKs.
           </p>
 
-          <h2>2e. Local Storage (SwiftData)</h2>
+          <h2>2h. Local Storage (SwiftData)</h2>
           <p>
-            Your color palette results, wardrobe items, custom palettes, and style preferences are
-            stored <strong>locally on your device</strong> using Apple&apos;s SwiftData framework.
-            This data is backed up to iCloud only as part of your personal iCloud account, which
+            Your color palette results, quiz answers, wardrobe items, custom palettes, and style
+            preferences are stored <strong>locally on your device</strong> using Apple&apos;s SwiftData
+            framework. There are no user accounts and no server-side personal data storage. This
+            data may be backed up to iCloud only as part of your personal iCloud account, which
             is controlled entirely by you and Apple.
           </p>
 
           <h2>3. How We Use Your Information</h2>
           <ul>
-            <li>To determine your personal color season and generate your palette.</li>
-            <li>To provide personalized style recommendations and daily content.</li>
+            <li>To analyze your skin tone on-device and determine your personal color season.</li>
+            <li>To generate personalized style recommendations via OpenAI (color season, palette, and quiz preferences only — no photos).</li>
+            <li>To display product inspiration images fetched through our server proxy.</li>
             <li>To enable the Color Scanner and virtual draping features.</li>
-            <li>To verify and restore your lifetime purchase.</li>
-            <li>To diagnose crashes and improve app stability.</li>
+            <li>To verify and restore your in-app purchase via RevenueCat.</li>
+            <li>To diagnose crashes and improve app stability via Apple diagnostics.</li>
           </ul>
           <p>We do <strong>not</strong> use your data for advertising, profiling, or any purpose
           not listed above.</p>
 
           <h2>4. Data Sharing &amp; Third Parties</h2>
           <p>
-            We share only the minimal data necessary to provide the features described above with
-            the following third parties:
+            We share only the minimal data necessary to provide the features described above. The
+            following third-party services are used:
           </p>
           <ul>
-            <li><strong>OpenAI</strong> — AI-generated style content (see Section 2b)</li>
-            <li><strong>Serper</strong> — Style imagery search (see Section 2b)</li>
-            <li><strong>Apple</strong> — Purchase processing and device analytics</li>
+            <li>
+              <strong>OpenAI</strong> — Receives your color season, palette values, and style
+              preferences to generate recommendations. No photos sent.{' '}
+              <a href="https://openai.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            </li>
+            <li>
+              <strong>RevenueCat</strong> — Receives an anonymous app user ID and Apple purchase
+              receipt to validate in-app purchases. No personal data sent.{' '}
+              <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            </li>
+            <li>
+              <strong>Supabase</strong> — Server infrastructure used to proxy product image
+              searches. No personal user data stored.{' '}
+              <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            </li>
+            <li>
+              <strong>Apple</strong> — Purchase processing, device analytics, and iCloud backup
+              (under your own Apple account).
+            </li>
           </ul>
           <p>
             We do not sell, rent, or trade your personal information. We do not use advertising
@@ -141,12 +194,22 @@ export default function PrivacyPage() {
             promptly delete it.
           </p>
 
-          <h2>6. Data Retention</h2>
+          <h2>6. Data Deletion</h2>
           <p>
-            Since we do not maintain user accounts or server-side databases, there is no personal
-            data stored on our servers to retain or delete. All personal data lives on your device.
-            You can delete all app data at any time by uninstalling ChromaStyle from your iPhone.
+            Since we do not maintain user accounts or server-side personal databases, there is no
+            personal data stored on our servers to retain or delete. All personal data lives on
+            your device. You can delete all app data in either of the following ways:
           </p>
+          <ul>
+            <li>
+              <strong>In-app:</strong> Go to Settings → tap <em>&quot;Delete My Data&quot;</em> to
+              permanently erase all locally stored data.
+            </li>
+            <li>
+              <strong>Delete the app:</strong> Uninstalling ChromaStyle from your iPhone removes
+              all associated data from your device.
+            </li>
+          </ul>
 
           <h2>7. Your Rights</h2>
           <p>
